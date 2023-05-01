@@ -17,9 +17,10 @@ function Signup() {
             name, email, password, confirmPassword
         });
         const { status, message, data = '' } = response.data;
+        const { liveCourse, upcomingCourse } = data;
         if (['success'].includes(status)) {
             const { name, email } = data;
-            history("/home", { state: { name, email } })
+            history("/home", { state: { name, email, liveCourse, upcomingCourse } })
 
             // success - redirect to home page
         }
