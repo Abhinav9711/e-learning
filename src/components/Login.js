@@ -10,21 +10,16 @@ function Login() {
     async function handleLogin(e) {
 
         e.preventDefault();
-        // const response = await axios.post(`https://tms-server.cyclic.app/user/signin`, {
-        //     email,
-        //     password
-        // })
         const response = await axios.post(`https://e-learning-server.cyclic.app/student/signin`, {
             email,
             password
         })
 
-        console.log('wait for a min...')
         const { status, message, data = '' } = response.data;
-        const { name } = data;
+        const { liveCourse, upcomingCourse } = data;
         if (['success'].includes(status)) {
             const { name, email } = data;
-            history("/home", { state: { name, email } })
+            history("/home", { state: { name, email, liveCourse, upcomingCourse } })
             // success - redirect to home page
         }
         else {

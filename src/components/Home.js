@@ -6,10 +6,20 @@ import axios from 'axios';
 const Home = () => {
     const location = useLocation();
     const history = useNavigate();
-    
-    const [fullRecord, setFullRecord] = useState(['English', 'Maths', 'ENV', 'Computer', 'GK', 'Arts', 'Social Science', 'Hindi'])
-    const [record, setRecord] = useState(['English', 'Maths', 'ENV', 'Computer', 'GK', 'Arts', 'Social Science', 'Hindi'])
-    const [upcomingCourses, setUpcomingCourses] = useState(['English part 2', 'Maths part 2', 'ENV part 2', 'GK part 2', 'Arts part 2', 'Hindi part 2']);
+
+    const course = location.state.liveCourse;
+    const upCourse = location.state.upcomingCourse;
+
+    let r = [];
+    let u = [];
+
+    course.map(c => { r.push(c.courseName)})
+
+    upCourse.map(c => { u.push(c.courseName)})
+
+    const [fullRecord, setFullRecord] = useState(r);
+    const [record, setRecord] = useState(r);
+    const [upcomingCourses, setUpcomingCourses] = useState(u)
 
     const handleClick = (subject) => {
         history("/home/details", { state: subject });
@@ -40,6 +50,7 @@ const Home = () => {
         <>
             <div style={{ textAlign: 'center', paddingTop: '50px', marginBottom: '30px' }}>
                 <input style={{ textAlign: 'center', padding: '10px', paddingLeft: '200px', paddingRight: '200px', backgroundColor: '#c6cbd4' }} onKeyUp={searchInput} placeholder="Search here..."></input>
+                <Link to='/login' style={{ marginLeft: '1200px', color: 'black' }}> <button style={{ background: '#c6cbd4', padding: '8px' }}>Logout </button></Link>
                 <h3 style={{ marginLeft: '1200px', color: 'black' }}>For Children (1st-8th)</h3>
             </div>
 
@@ -51,8 +62,6 @@ const Home = () => {
                                 <img src="https://babich.biz/content/images/2017/01/schools-promotional-videos.jpg" width="200" height="150" />
                             </button>
                             <p>{r}</p>
-
-
                         </div>)
                     })
                 }
@@ -70,8 +79,6 @@ const Home = () => {
                                 <img src="https://babich.biz/content/images/2017/01/schools-promotional-videos.jpg" width="200" height="150" />
                             </button>
                             <p>{r}</p>
-
-
                         </div>)
                     })
                 }

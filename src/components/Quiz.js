@@ -64,9 +64,7 @@ function Quiz(props) {
         setCorrect(count);
         setWrong(userInput.length - count);
         setShowResult(true);
-
     }
-
 
     return (
         <div>
