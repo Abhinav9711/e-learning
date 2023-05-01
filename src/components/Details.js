@@ -34,7 +34,7 @@ const Details = (props) => {
 
             <div className='details'>
                 <div></div>
-                <button onClick={handleClick} style={{marginTop: '20px', marginBottom: '30px', backgroundColor: 'rgb(164, 201, 177)', color:'rgb(50, 58, 201)', fontSize:'20px'}}> <h3>{subject} quizz</h3></button>
+                <button onClick={handleClick} style={{marginTop: '20px', marginBottom: '30px', backgroundColor: 'rgb(164, 201, 177)', color:'rgb(50, 58, 201)', fontSize:'20px'}}> <h3>{subject} quiz</h3></button>
             </div>
 
         </>
