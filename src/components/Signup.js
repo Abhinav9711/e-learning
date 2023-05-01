@@ -13,7 +13,7 @@ function Signup() {
     async function handleSubmit(e) {
         e.preventDefault();
         console.log('user account creating...')
-        const response = await axios.post(`http://localhost:4000/student/signup`, {
+        const response = await axios.post(`https://e-learning-server.cyclic.app/student/signup`, {
             name, email, password, confirmPassword
         });
         const { status, message, data = '' } = response.data;
